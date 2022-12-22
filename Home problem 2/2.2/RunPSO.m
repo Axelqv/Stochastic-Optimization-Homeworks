@@ -7,7 +7,7 @@ clc
 % Parameters
 weight = 1.4;
 beta = 0.9;              % factor to reduce the weigth for each iterations
-minWeight = 0.4;    % lower bound of the weight
+minWeight = 0.4;         % lower bound of the weight
 nrOfParticles = 40;      % Should be somewhere between 20-40 according to course book
 alpha = 1;
 deltaT = 1;
@@ -28,7 +28,7 @@ f = (X.^2 + Y - 11).^2 + (X + Y.^2 - 7).^2;
 % Make the countour plot for the function log(a + f (x, y)) to easier see the minimas
 a = 0.001;
 fLog = log(a + f);
-contour3(X,Y,fLog,50);
+contour(X,Y,fLog,'ShowText','on');
 
 % Initialize positions and velocities of particles
 randomNumber1 = rand(nrOfParticles,2);
@@ -36,21 +36,6 @@ positions = xMin + randomNumber1 .* (xMax - xMin);
 
 randomNumber2 = rand(nrOfParticles,2);
 velocities = alpha/deltaT*(xMin + randomNumber2*(xMax - xMin));
-
-
-
-% positions = zeros(nrOfParticles,2);
-% velocities = zeros(nrOfParticles,2);
-% xMax = max(x);
-% xMin = min(x);
-% for i = 1:nrOfParticles
-%     randomNumber = rand;
-%     position = xMin + randomNumber * (xMax - xMin);
-%     randomNumber = rand;
-%     velocity = alpha/deltaT*(xMin + randomNumber*(xMax - xMin));
-%     positions(i) = position;
-%     velocities(i) = velocity;
-% end
 
 % initialize the best position to the position in the start and sBest to
 % some of the postions
